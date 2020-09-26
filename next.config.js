@@ -1,0 +1,10 @@
+module.exports = {
+  build: {
+    env: {
+      GOOGLE_APPLICATION_CREDENTIALS_BASE64: process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64,
+    }
+  },
+  env: {
+    GOOGLE_APPLICATION_CREDENTIALS_BASE64: process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64,
+  },
+}
