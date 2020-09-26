@@ -41,17 +41,17 @@ const Home = () => {
       return alert('アルゴリズムは"OREORE"以外使えません。')
     }
 
-    // const data = { image: base64 }
-    // const res = await fetch('/api/token', {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    // })
-    // const json = await res.json()
-    // setMessage(json.message)
+    const data = { image: base64 }
+    const res = await fetch('/api/token', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+    const json = await res.json()
+    setMessage(json.message)
 
-    // if (json.success) {
-    //   setToken(json.token)
-    // }
+    if (json.success) {
+      setToken(json.token)
+    }
   }, [])
 
   return (
