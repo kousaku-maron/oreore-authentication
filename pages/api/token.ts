@@ -23,21 +23,18 @@ const token = async (req: NextApiRequest, res: NextApiResponse) => {
   const annotations = result.faceAnnotations
 
   if (annotations.length === 0) {
-    // return res.status(401).json({ success: false, message: '顔を見せてください。', token: null })
-    return res.status(401).json({ success: false, message: 'エラー、さぁもっと挑戦してください', token: null })
+    return res.status(401).json({ success: false, message: '顔を見せてください。', token: null })
   }
 
   if (annotations.length > 1) {
-    // return res.status(401).json({ success: false, message: '一人だけにしてください。', token: null })
-    return res.status(401).json({ success: false, message: 'エラー、さぁもっと挑戦してください', token: null })
+    return res.status(401).json({ success: false, message: '一人だけにしてください。', token: null })
   }
 
   const annotation = annotations[0]
   const joyLikelihood = annotation.joyLikelihood
 
   if (joyLikelihood !== 'VERY_LIKELY' && joyLikelihood !== 'LIKELY') {
-    // return res.status(401).json({ success: false, message: '笑ってください。', token: null })
-    return res.status(401).json({ success: false, message: 'エラー、惜しい。', token: null })
+    return res.status(401).json({ success: false, message: '笑ってください。', token: null })
   }
 
   const token = jwt.sign(payload, secret, { algorithm: 'HS256', expiresIn: '12h' })
